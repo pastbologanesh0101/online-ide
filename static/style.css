@@ -1,0 +1,137 @@
+:root {
+  --bg: #1e1e1e;
+  --panel: #252526;
+  --text: #d4d4d4;
+  --accent: #4ec9b0;
+  --error: #f48771;
+  --border: #3c3c3c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.4rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.disclaimer {
+  font-size: 0.85rem;
+  color: #999;
+  max-width: 60em;
+  margin: 0.25rem 0 0 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+label { font-size: 0.85rem; color: #aaa; }
+
+input[type="text"], select {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+}
+
+button {
+  background: var(--accent);
+  color: #111;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover { opacity: 0.85; }
+
+textarea {
+  width: 100%;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+  font-size: 0.9rem;
+  padding: 0.6rem;
+  resize: vertical;
+}
+
+#code {
+  height: 320px;
+}
+
+.stdin {
+  height: 70px;
+}
+
+.output-pane h2 {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 0.6rem 0 0.3rem 0;
+  text-transform: uppercase;
+}
+
+.stream {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.6rem;
+  min-height: 100px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+  font-size: 0.85rem;
+}
+
+.stderr { color: var(--error); }
+
+.meta {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #999;
+  display: flex;
+  gap: 1.5rem;
+}
+
+#status { font-size: 0.85rem; color: #aaa; }

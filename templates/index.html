@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online IDE — Python Runner</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <h1>Online IDE <span class="tag">Python-only demo</span></h1>
+  <p class="disclaimer">
+    Local, single-user demo. Code runs in a subprocess with a timeout and
+    best-effort resource limits — <strong>not</strong> a hardened
+    multi-tenant sandbox. See README for details.
+  </p>
+</header>
+
+<main>
+  <section class="editor-pane">
+    <div class="row">
+      <label for="snippet-name">Snippet name</label>
+      <input id="snippet-name" type="text" placeholder="my-script">
+      <button id="save-btn">Save</button>
+      <select id="snippet-select">
+        <option value="">-- load saved snippet --</option>
+      </select>
+      <button id="refresh-btn" title="Refresh snippet list">&#8635;</button>
+    </div>
+
+    <textarea id="code" spellcheck="false" placeholder="# write Python here
+print('hello world')">print("hello world")
+</textarea>
+
+    <div class="row">
+      <label for="stdin-box">stdin (optional)</label>
+    </div>
+    <textarea id="stdin-box" class="stdin" placeholder="Input fed to the program's stdin, one value per line"></textarea>
+
+    <div class="row">
+      <button id="run-btn">Run ▶</button>
+      <span id="status"></span>
+    </div>
+  </section>
+
+  <section class="output-pane">
+    <h2>Output</h2>
+    <pre id="stdout" class="stream stdout"></pre>
+    <h2>Errors</h2>
+    <pre id="stderr" class="stream stderr"></pre>
+    <div class="meta">
+      <span id="exit-code"></span>
+      <span id="exec-time"></span>
+    </div>
+  </section>
+</main>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
